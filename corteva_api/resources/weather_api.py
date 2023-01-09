@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 
 
 class WeatherResource(Resource):
-    def get(self, station_id=None, date=None):
+    def get(self, station_id=None):
         """
         WeatherResource GET method. Retrieves all weather information 
         found in the CORTEVA DB under the Weather table. 
@@ -27,7 +27,7 @@ class WeatherResource(Resource):
         :return: Weather, 200 HTTP status code
         """
 
-        if not station_id and not date:
+        if not station_id:
             return self._get_all_weather(), 200
         
 

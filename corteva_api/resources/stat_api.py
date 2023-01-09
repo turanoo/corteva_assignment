@@ -28,14 +28,34 @@ class StatsResource(Resource):
         :return: Weather, 200 HTTP status code
         """
 
-        if not station_id and not date:
-            return self._get_all_stats(), 200
+        if not station_id:
+            return self._get_all_weather(), 200
         
-        
+
+        if station_id:
+            try:
+                return self._get_all_weather_by_station(station_id)
+            except NoResultFound:
+                abort(404, message="No weather stat found for this station")
+
+
     
-    def _get_all_stats(self):
+    def _get_all_weather(self):
         stats = Stats.query.all()
         stats_json = [StatSchema().dump(stat) for stat in stats]
 
-        logger.info(f"Stats json returned {stats_json}")
+        logger.info("All weather stat returned")
+        return stats_json
+
+
+    def _get_all_weather_by_station(self, station_id):
+        stats = Stats.query.filter_by(station_id=station_id)
+        stats_json = [StatSchema().dump(stat) for stat in stats]
+
+        if not stats_json:
+            logger.info(f"No records found with this station: {station_id}")
+            raise NoResultFound
+
+
+        logger.info(f"Returning all weather stats filtered by {station_id} station_id")
         return stats_json

@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 
 
 class YieldResource(Resource):
-    def get(self, station_id=None, date=None):
+    def get(self, station_id=None):
         """
         YieldResource GET method. Retrieves all weather information 
         found in the CORTEVA DB under the Weather table. 
@@ -30,6 +30,8 @@ class YieldResource(Resource):
         """
 
         return self._get_all_yield, 200
+        
+
         
 
     
