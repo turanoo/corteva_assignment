@@ -1,0 +1,30 @@
+01-07 15:18 werkzeug     INFO     [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+01-07 15:18 werkzeug     INFO     [33mPress CTRL+C to quit[0m
+01-07 15:18 werkzeug     INFO      * Restarting with stat
+01-07 15:18 werkzeug     WARNING   * Debugger is active!
+01-07 15:18 werkzeug     INFO      * Debugger PIN: 539-648-471
+01-07 15:27 werkzeug     INFO     [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+01-07 15:27 werkzeug     INFO     [33mPress CTRL+C to quit[0m
+01-07 15:27 werkzeug     INFO      * Restarting with stat
+01-07 15:27 werkzeug     WARNING   * Debugger is active!
+01-07 15:27 werkzeug     INFO      * Debugger PIN: 539-648-471
+01-07 15:33 werkzeug     INFO     [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+01-07 15:33 werkzeug     INFO     [33mPress CTRL+C to quit[0m
+01-07 15:33 werkzeug     INFO      * Restarting with stat
+01-07 15:33 werkzeug     WARNING   * Debugger is active!
+01-07 15:33 werkzeug     INFO      * Debugger PIN: 539-648-471
+01-07 15:39 werkzeug     INFO     [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+01-07 15:39 werkzeug     INFO     [33mPress CTRL+C to quit[0m
+01-07 15:39 werkzeug     INFO      * Restarting with stat
+01-07 15:39 werkzeug     WARNING   * Debugger is active!
+01-07 15:39 werkzeug     INFO      * Debugger PIN: 539-648-471
+01-08 22:24 werkzeug     INFO     [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+01-08 22:24 werkzeug     INFO     [33mPress CTRL+C to quit[0m
+01-08 22:24 werkzeug     INFO      * Restarting with stat
+01-08 22:24 werkzeug     WARNING   * Debugger is active!
+01-08 22:24 werkzeug     INFO      * Debugger PIN: 539-648-471
