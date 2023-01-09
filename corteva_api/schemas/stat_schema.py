@@ -10,9 +10,9 @@ class StatSchema(Schema):
     id = fields.Integer(allow_none=False)
     year = fields.Date(allow_none=False)
     station_id = fields.String(allow_none=False)
-    max_temp = fields.Integer()
-    min_temp = fields.Integer()
-    precipitation = fields.Integer()
+    avg_max_temp = fields.Integer()
+    avg_min_temp = fields.Integer()
+    total_precip = fields.Integer()
 
     @post_load
     def create_stat(self, data, **kwargs):

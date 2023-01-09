@@ -22,7 +22,7 @@ class Stats(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     station_id = db.Column(db.String(), nullable=False)
     year = db.Column(db.Date(), nullable=False)
-    avg_temp = db.Column(db.Integer, nullable=False)
-    avg_temp = db.Column(db.Integer, nullable=False)
+    avg_max_temp = db.Column(db.Integer, nullable=False)
+    avg_min_temp = db.Column(db.Integer, nullable=False)
     total_precip = db.Column(db.Integer, nullable=False)
 
