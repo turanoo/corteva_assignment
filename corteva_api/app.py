@@ -10,6 +10,8 @@ from flask_restful import Api
 
 from corteva_api.constants import ROOT, CORTEVA_DB
 from corteva_api.database import db
+from corteva_api.resources.weather_api import WeatherResource, WEATHER_ENDPOINT
+from corteva_api.resources.yield_api import YieldResource, YIELD_ENDPOINT
 
 from corteva_api.models import weather, yields
 
@@ -40,10 +42,13 @@ def create_app(db_location):
 
     if not path.exists(db_location):
         with app.app_context():    
-            print('creating something')
+            # add log
             db.create_all()
 
     api = Api(app)
+    api.add_resource(WeatherResource, WEATHER_ENDPOINT)
+    api.add_resource(YieldResource, YIELD_ENDPOINT)
+    
     return app
 
 
@@ -51,19 +56,5 @@ def create_app(db_location):
 
 
 if __name__ == "__main__":
-
-    # # TODO check if DB exists, if not create a DB
-    # if not path.exists(f"{ROOT}/{CORTEVA_DB}"):
-    #     import sqlalchemy as Db
-    #     engine = Db.create_engine(f"sqlite:////{ROOT}/{CORTEVA_DB}")
-    #     connection = engine.connect()
-    #     metadata = Db.MetaData()
-    #     yields = Db.Table('yields', )
-    #     weathers = Db.Table('weathers',)
-        
-
-
-
-
     app = create_app(f"sqlite:////{ROOT}/{CORTEVA_DB}")
     app.run(debug=True)
