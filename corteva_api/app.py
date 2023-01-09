@@ -9,7 +9,7 @@ from flask import Flask
 from flask_restful import Api
 from sqlalchemy import create_engine
 
-from corteva_api.constants import ROOT, CORTEVA_DB, WX_DATA_DIR, YLD_DATA
+from corteva_api.constants import CORTEVA_DB, WX_DATA_DIR, YLD_DATA
 from corteva_api.database import db
 from corteva_api.resources.weather_api import WeatherResource, WEATHER_ENDPOINT
 from corteva_api.resources.yield_api import YieldResource, YIELD_ENDPOINT
@@ -52,7 +52,7 @@ def create_app(db_location):
 
 
     # Check if the database exists, if not create the DB and run the imports
-    if not path.exists(db_location):
+    if not path.exists(CORTEVA_DB):
         with app.app_context():    
             logger.info("Database not found. Creating the database and instantiating all tables")
             db.create_all()
@@ -71,5 +71,5 @@ def create_app(db_location):
 
 
 if __name__ == "__main__":
-    app = create_app(f"sqlite:////{ROOT}/{CORTEVA_DB}")
+    app = create_app(f"sqlite:////{CORTEVA_DB}")
     app.run(debug=True)

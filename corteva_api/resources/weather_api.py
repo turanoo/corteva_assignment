@@ -3,7 +3,6 @@ import logging
 
 from flask import request
 from flask_restful import Resource, abort
-from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm.exc import NoResultFound
 
 from corteva_api.database import db
@@ -25,7 +24,6 @@ class WeatherResource(Resource):
         
 
         :param station_id: Station ID to retrieve all weather records pertaining to that station
-        :param date: Date to retrieve all weather records pertaining to that date
         :return: Weather, 200 HTTP status code
         """
 
@@ -33,12 +31,35 @@ class WeatherResource(Resource):
             return self._get_all_weather(), 200
         
 
+        if station_id:
+            try:
+                return self._get_all_weather_by_station(station_id)
+            except NoResultFound:
+                abort(404, message="No weather information found")
+
+
     
     def _get_all_weather(self):
         weathers = Weather.query.all()
         weathers_json = [WeatherSchema().dump(weather) for weather in weathers]
 
-        logger.info("Weather info returned")
+        logger.info("All weather data returned")
         return weathers_json
+
+
+    def _get_all_weather_by_station(self, station_id):
+        weathers = Weather.query.filter_by(station_id=station_id)
+        weathers_json = [WeatherSchema().dump(weather) for weather in weathers]
+
+        if not weathers_json:
+            logger.info(f"No records found with this station: {station_id}")
+            raise NoResultFound
+
+
+        logger.info(f"Returning all weather data filtered by {station_id} station_id")
+        return weathers_json
+
+
+
     
         
